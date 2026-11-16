@@ -4,7 +4,7 @@
 
 **Built a simple tool to save me 3 minutes by getting the job done in 30 seconds after spending 3 weeks building it.**
 
-[![Open the app](https://img.shields.io/badge/Open_the_app-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white)](https://rishipx.github.io/Coverdraft/)
+[![Open the app](https://img.shields.io/badge/Open_the_app-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white)](https://coverdraft.neverask.me)
 [![Docs](https://img.shields.io/badge/Docs-8B5CF6?style=for-the-badge&logo=readme&logoColor=white)](#documentation)
 [![Report a bug](https://img.shields.io/badge/Report_a_bug-F43F5E?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rishipx/Coverdraft/issues)
  
