@@ -1,0 +1,198 @@
+{
+  "id": "ptu",
+  "order": 10,
+  "name": "I.K.G Punjab Technical University, Kapurthala",
+  "label": "I.K.G Punjab Technical University (PTU)",
+  "shortName": "IKGPTU",
+  "detect": "punjab\\s+technical|i\\.?\\s?k\\.?\\s+gujral|\\bikgptu\\b|\\bptu\\b",
+  "defaults": {
+    "department": "Department of Computer Science Engineering",
+    "title": "Deep Learning",
+    "code": "BTCS704-18",
+    "degreeFull": "Bachelor of Technology",
+    "specialization": "Computer Science Engineering",
+    "prof": "Prof. James Moriarty"
+  },
+  "student": {
+    "name": "Sherlock Holmes",
+    "roll": "123456",
+    "branch": "CSE",
+    "sem": "7th"
+  },
+  "fields": [
+    {
+      "id": "university",
+      "label": "University Header",
+      "group": "course"
+    },
+    {
+      "id": "department",
+      "label": "Department Line",
+      "group": "course"
+    },
+    {
+      "id": "title",
+      "label": "Assignment / Lab Title",
+      "group": "course"
+    },
+    {
+      "id": "degreeFull",
+      "label": "Degree Name",
+      "group": "course",
+      "grid": 2
+    },
+    {
+      "id": "specialization",
+      "label": "Specialization Branch",
+      "group": "course",
+      "grid": 2
+    },
+    {
+      "id": "code",
+      "label": "Subject Code",
+      "group": "course",
+      "grid": 2
+    },
+    {
+      "id": "prof",
+      "label": "Submitted To (Faculty)",
+      "group": "course",
+      "grid": 2
+    },
+    {
+      "id": "name",
+      "label": "Student Full Name",
+      "group": "student"
+    },
+    {
+      "id": "roll",
+      "label": "Roll Number",
+      "group": "student",
+      "grid": 3
+    },
+    {
+      "id": "branch",
+      "label": "Branch",
+      "group": "student",
+      "grid": 3
+    },
+    {
+      "id": "sem",
+      "label": "Semester",
+      "group": "student",
+      "grid": 3
+    }
+  ],
+  "style": {
+    "id": "ptu_formal",
+    "name": "PTU Formal (Bordered)",
+    "font": "'Times New Roman', Times, serif",
+    "border": {
+      "enabled": true,
+      "style": "solid",
+      "width": 2,
+      "color": "#111111",
+      "inset": 28
+    }
+  },
+  "cover": [
+    {
+      "id": "uni_name",
+      "x": 50,
+      "y": 92,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 23,
+      "text": "{university}",
+      "color": "#111"
+    },
+    {
+      "id": "dept_line",
+      "x": 50,
+      "y": 137,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 17.5,
+      "text": "{department}",
+      "color": "#111"
+    },
+    {
+      "id": "title",
+      "x": 50,
+      "y": 228,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 19.5,
+      "text": "{title}",
+      "color": "#111"
+    },
+    {
+      "id": "code_line",
+      "x": 50,
+      "y": 264,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 16.5,
+      "text": "{code}",
+      "color": "#111"
+    },
+    {
+      "id": "logo",
+      "x": 322,
+      "y": 332,
+      "w": 150,
+      "h": 150,
+      "type": "logo"
+    },
+    {
+      "id": "degree_title",
+      "x": 50,
+      "y": 648,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 19,
+      "text": "{degreeFull}",
+      "color": "#111"
+    },
+    {
+      "id": "specialization",
+      "x": 50,
+      "y": 686,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 17.5,
+      "text": "({specialization})",
+      "color": "#111"
+    },
+    {
+      "id": "submitted_to",
+      "x": 50,
+      "y": 920,
+      "w": 320,
+      "align": "left",
+      "weight": "bold",
+      "size": 17.5,
+      "text": "Submitted To:\n\n{prof}",
+      "color": "#111",
+      "lineHeight": 1
+    },
+    {
+      "id": "submitted_by",
+      "x": 500,
+      "y": 920,
+      "w": 244,
+      "align": "left",
+      "weight": "bold",
+      "size": 17.5,
+      "text": "Submitted By:\n\n{name}\n\nB.Tech {branch} ({sem} SEM)\n\n{roll}",
+      "color": "#111",
+      "lineHeight": 1
+    }
+  ]
+}

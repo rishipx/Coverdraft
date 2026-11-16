@@ -1,0 +1,4 @@
+# Normalise line endings: the build hashes file contents for the service-worker cache name.
+* text=auto eol=lf
+*.png binary
+*.ico binary

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="Create academic cover pages, index pages, and consolidated assignment PDFs.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coverdraft — Document &amp; Cover Page Builder">
+<meta property="og:description" content="Create academic cover pages, index pages, and consolidated assignment PDFs. Free, private, and runs in your browser.">
+<title>Coverdraft — Document & Cover Page Builder</title>
+
+<!-- Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./assets/css/app.css">
+<link rel="stylesheet" href="./assets/css/student-workflow.css">
+<link rel="stylesheet" href="./assets/css/mobile.css">
+</head>
+<body data-page="cover" data-sel="none">
+
+<div class="app-container">
+  <header class="top-nav">
+    <div class="brand-block">
+      <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Toggle panel" aria-label="Toggle side panel">
+        <i data-icon="menu" data-size="16"></i>
+      </button>
+      <div class="brand-title">
+        Coverdraft
+      </div>
+
+      <div class="mode-switch-wrapper" title="Simple: fill in details. Advanced: move and style every element.">
+        <span class="mode-label active" id="simpleModeText" data-app-mode="simple">Back to simple</span>
+        <label class="switch">
+          <input type="checkbox" id="advancedModeSwitch" aria-labelledby="advModeText">
+          <span class="slider"></span>
+        </label>
+        <span class="mode-label" id="advModeText" data-app-mode="advanced">Advanced mode</span>
+      </div>
+      <div class="save-status" id="saveStatus" role="status" aria-live="polite" title="Your work is saved locally in this browser">
+        <span class="save-status-dot" id="saveStatusDot"></span><span id="saveStatusText">Saved on this device</span>
+      </div>
+      <div class="offline-status" id="offlineStatus" role="status" aria-live="polite" title="Offline readiness status">
+        <span class="offline-status-dot" aria-hidden="true"></span><span id="offlineStatusText">Checking offline…</span>
+      </div>
+    </div>
+
+    <nav class="view-tabs" aria-label="Document pages">
+      <button class="view-tab active" data-page="cover" id="tabPageCover"><span class="page-tab-num">1</span> Cover</button>
+      <button class="view-tab" data-page="index" id="tabPageIndex"><span class="page-tab-num">2</span> Index</button>
+      <button class="view-tab view-tab-design" data-panel="styling" id="tabPanelDesign" type="button" aria-pressed="false" title="Design: borders, fonts and layout"><i data-icon="sliders-horizontal" data-size="13"></i> Design</button>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="menu-wrap">
+        <button class="btn btn-secondary btn-icon" id="moreMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="More actions" title="More actions">
+          <i data-icon="ellipsis" data-size="16"></i>
+        </button>
+        <div class="menu-panel" id="moreMenu" role="menu">
+          <div class="menu-profile" id="studentProfileSwitcher" role="group" aria-labelledby="studentProfileLabel">
+            <label class="menu-profile-label" id="studentProfileLabel" for="studentProfileSwitchSelect"><i data-icon="user-round" data-size="14"></i>Student profile</label>
+            <select class="select-box" id="studentProfileSwitchSelect" data-close-menu-on-change><option value="">No saved profiles yet</option></select>
+            <div class="menu-profile-actions">
+              <button class="btn btn-cyan" id="addStudentProfileBtn" type="button" data-close-menu><i data-icon="plus" data-size="14"></i>Add profile</button>
+              <button class="btn btn-secondary" id="deleteSwitcherProfileBtn" type="button" title="Delete selected profile" aria-label="Delete selected profile" data-close-menu hidden><i data-icon="trash-2" data-size="14"></i>Delete</button>
+            </div>
+          </div>
+          <div class="menu-sep" role="separator"></div>
+          <button class="menu-item" id="themeToggleBtn" type="button" role="menuitem"><span class="theme-toggle-label">Light theme</span><small>Use the light workspace</small></button>
+          <button class="menu-item" id="sharePresetBtn" role="menuitem">Copy class link<small>Your subjects, index entries and design. No personal details.</small></button>
+          <button class="menu-item" id="clearImportedPagesBtn" type="button" role="menuitem" hidden disabled>Remove imported pages<small>Clear documents imported into this workspace</small></button>
+          <button class="menu-item" id="openShortcutHelpBtn" type="button" role="menuitem">Keyboard shortcuts<small>See every shortcut</small></button>
+          <button class="menu-item" id="reportFmtBtn" role="menuitem">Report a wrong format<small>Opens GitHub Issues</small></button>
+          <button class="menu-item" id="installBtn" role="menuitem" style="display:none">Install app<small>Use it offline like a normal app</small></button>
+        </div>
+      </div>
+      <button class="btn btn-secondary" id="sharePdfBtn" type="button" title="Share the generated PDF" aria-label="Share PDF"><i data-icon="share-2" data-size="14"></i><span class="lbl">Share</span></button>
+      <button class="btn btn-secondary" id="openMergerBtn" title="Add this cover to your assignment PDF"><i data-icon="paperclip" data-size="14"></i><span class="lbl">Attach PDF</span></button>
+      <div class="download-control">
+        <button class="btn btn-cyan download-main" id="exportPdfBtn" type="button" aria-busy="false" title="Download the current page as a single-page PDF"><i data-icon="download" data-size="14"></i><span class="lbl">Download PDF</span></button>
+        <button class="btn btn-cyan download-options-toggle" id="downloadOptionsBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="downloadOptionsMenu" aria-label="More download options" title="More download options"><i data-icon="chevron-down" data-size="13"></i></button>
+        <div class="download-menu" id="downloadOptionsMenu" role="menu" aria-label="Download options" hidden>
+          <button class="menu-item download-option" id="previewPdfMenuBtn" type="button" role="menuitem">Preview &amp; export PDF<small>Choose pages and subjects, then download or print</small></button>
+          <button class="menu-item download-option" id="downloadDocxBtn" type="button" role="menuitem" aria-busy="false">Download DOCX<small>Editable Word document of the current page</small></button>
+          <button class="menu-item download-option" id="exportSeparatePdfBtn" type="button" role="menuitem">Download pages separately<small>Save the cover and index individually</small></button>
+          <button class="menu-item download-option" id="exportPngBtn" type="button" role="menuitem">Download pages as images<small>Export individual pages as PNG images</small></button>
+        </div>
+      </div>
+      <button class="btn btn-secondary" id="tabViewBatch" title="Switch subject without re-entering your details">
+        <i data-icon="graduation-cap" data-size="14"></i><span class="lbl">Change course</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="subject-bar" id="subjectBar" aria-label="Course and university shortcuts">
+    <div class="top-university-picker" id="universityFormatSection" aria-label="University format">
+      <select class="select-box" id="uniPresetSelect" aria-label="Premade university template" title="University cover format" data-short-select="uni">
+        <option value="custom">Custom Freeform Layout</option>
+        <optgroup id="savedLayoutOptions" label="Saved layouts" hidden></optgroup>
+      </select>
+      <button class="top-university-reset" id="resetCurrentTplBtn" type="button" title="Reset to selected university format defaults" aria-label="Reset university format"><i data-icon="rotate-ccw" data-size="14"></i></button>
+    </div>
+    <select class="select-box semester-shortcut" id="sbSem" aria-label="Semester" title="Semester" data-short-select="sem"></select>
+    <div class="chips" id="sbChips" aria-label="Pinned subject shortcuts"></div>
+    <button class="btn btn-secondary course-switcher-top-btn" id="openCourseSwitcherTopBtn" type="button" title="Optional: browse ready-made subject lists, edit or pin subjects">Subject library</button>
+  </div>
+  <button class="btn btn-cyan mobile-edit-fab" id="mobileEditFab" type="button" aria-label="Edit your details"><i data-icon="pencil" data-size="18"></i></button>
+  <div class="studio-body">
+    <aside class="sidebar" id="appSidebar">
+      <div class="sheet-head"><strong>Your details</strong><button class="btn btn-cyan" id="sheetDoneBtn" type="button">Done</button></div>
+      <div class="sidebar-scroll" id="sidebarScroll">
+        <div class="sidebar-panel-page" id="panelDoc">
+          <div class="panel-section">
+            <div class="section-heading">
+              <span>Course</span>
+              
+            </div>
+            <div id="dynamicCourseFieldsContainer"></div>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-heading">
+              <span>Student</span>
+            </div>
+            <div id="dynamicStudentFieldsContainer"></div>
+          </div>
+          <div class="panel-section" id="customEmblemSection">
+            <div class="section-heading">Emblem</div>
+            <label class="drop-box" id="logoDropZone">
+              <input type="file" id="customLogoFile" accept="image/*">
+              <div id="logoDropText" style="font-size: 11.5px; color: var(--text-muted);">
+                <strong>Upload your own emblem</strong><br>PNG, SVG or JPEG
+              </div>
+            </label>
+            <div style="display:flex; justify-content:space-between; margin-top:8px;">
+              <button class="btn btn-secondary" style="font-size:10px; padding:4px 8px;" id="resetUniLogoBtn">Use official crest</button>
+              <button class="btn btn-secondary" style="font-size:10px; padding:4px 8px; color:var(--accent-danger);" id="removeLogoBtn">Remove emblem</button>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-panel-page" id="panelStyling" style="display: none;">
+          <div class="panel-section">
+            <div class="section-heading">Paper size</div>
+            <div class="control-group">
+              <label class="control-label" for="pageSizeSelect">Page size</label>
+              <select class="select-box" id="pageSizeSelect" aria-label="Paper size">
+                <option value="a4">A4</option>
+                <option value="letter">US Letter</option>
+                <option value="legal">US Legal</option>
+                <option value="a3">A3</option>
+                <option value="a5">A5</option>
+              </select>
+              <div class="control-hint">A4 is standard for most academic submissions. Applies to all pages.</div>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-heading">Typography Engine</div>
+            <div class="control-group">
+              <label class="control-label" for="f_fontFamily">Document Font</label>
+              <select class="select-box" id="f_fontFamily">
+                <option value="'Times New Roman', Times, serif" selected>Times New Roman</option>
+                <option value="'EB Garamond', Georgia, serif">EB Garamond</option>
+                <option value="'Libre Baskerville', serif">Libre Baskerville</option>
+                <option value="'Inter', -apple-system, sans-serif">Inter</option>
+                <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <div class="range-label-row"><label class="control-label" for="f_fontScale">Text size</label><output id="f_fontScaleValue" for="f_fontScale">100%</output></div>
+              <input type="range" id="f_fontScale" min="80" max="180" step="5" value="100" style="width:100%;accent-color:var(--accent-cyan);">
+              <div class="control-hint">Scale all cover text without editing each item.</div>
+            </div>
+            <div class="control-group">
+              <div class="range-label-row"><label class="control-label" for="f_lineSpacing">Line spacing</label><output id="f_lineSpacingValue" for="f_lineSpacing">1.35×</output></div>
+              <input type="range" id="f_lineSpacing" min="100" max="180" step="5" value="135" style="width:100%;accent-color:var(--accent-cyan);">
+              <div class="control-hint">Adjust vertical breathing room for multi-line text.</div>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-heading">Academic Inset Border</div>
+            <div class="grid-2 control-group">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <input type="checkbox" id="f_showBorder" checked style="accent-color:var(--accent-cyan); width:15px; height:15px;">
+                <label for="f_showBorder" style="font-size:11.5px;">Enable Border</label>
+              </div>
+              <div>
+                <label class="control-label" for="f_borderStyle">Border style</label>
+                <select class="select-box" id="f_borderStyle">
+                  <option value="solid" selected>Single Formal Rule</option>
+                  <option value="double">Classic Double Line</option>
+                  <option value="dashed">Dashed Draft</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-2 control-group">
+              <div>
+                <label class="control-label" for="f_borderWidth">Width</label>
+                <input type="range" id="f_borderWidth" min="1" max="8" value="2" style="width:100%; accent-color:var(--accent-cyan);">
+              </div>
+              <div>
+                <label class="control-label" for="f_borderInset">Page border inset</label>
+                <input type="range" id="f_borderInset" min="0" max="45" value="28" style="width:100%; accent-color:var(--accent-cyan);">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="f_borderColor">Border Color</label>
+              <input type="color" id="f_borderColor" value="#111111" style="width:100%; height:30px; background:transparent; border:none; cursor:pointer;">
+            </div>
+            <button class="btn btn-secondary" id="resetDesignControlsBtn" type="button" style="width:100%;justify-content:center">Restore design defaults</button>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-heading">Canvas Elements (+ Add)</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <button class="btn btn-secondary" id="btnAddText">
+                <i data-icon="type" data-size="13"></i>
+                + Custom Editable Text
+              </button>
+              <button class="btn btn-secondary" id="btnAddRule">
+                <i data-icon="minus" data-size="13"></i>
+                + Divider Rule Line
+              </button>
+              <button class="btn btn-secondary" id="btnAddSig">
+                <i data-icon="user-round" data-size="13"></i>
+                + Evaluator Stamp & Signature Box
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-panel-page" id="panelExperiments" style="display: none;">
+          <div class="panel-section">
+            <div class="section-heading"><span>Index entries <span class="index-count" id="indexEntryCount">0 entries</span></span><button type="button" class="index-clear" id="clearIndexBtn" hidden>Clear all</button></div>
+            <div id="experimentsListWrap" class="index-list"></div>
+            <button class="btn btn-secondary index-add" id="addExperimentBtn" type="button">+ Add entry</button>
+            <div class="index-hint">Tip: press Enter in a title to add the next entry. The index shows Sr. No., Title, Page No., Date and Signature.</div>
+          </div>
+        </div>
+      </aside>
+    <div class="sidebar-resize-handle" id="sidebarResizeHandle" role="separator" aria-orientation="vertical" aria-label="Resize side panel" tabindex="0" title="Drag to resize the side panel"></div>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <main class="stage-viewport" id="stageViewport">
+      <div class="canvas-toolbar-overlay">
+        <button class="canvas-tool-btn" id="zoomOutBtn" title="Zoom Out" aria-label="Zoom out"><i data-icon="minus" data-size="14"></i></button>
+        <span class="zoom-label" id="zoomVal">100%</span>
+        <button class="canvas-tool-btn" id="zoomInBtn" title="Zoom In" aria-label="Zoom in"><i data-icon="plus" data-size="14"></i></button>
+        <div style="width:1px; height:14px; background:var(--border-subtle);"></div>
+        <button class="canvas-tool-btn" id="zoomFitBtn" title="Fit whole page">Fit page</button>
+        <button class="canvas-tool-btn" id="zoomFitWidthBtn" title="Fit page width">Fit width</button>
+        <button class="canvas-tool-btn" id="zoomActualBtn" title="Actual size (100%)">100%</button>
+          <button class="canvas-tool-btn active" id="snapToggleBtn" title="Smart Center Snapping">
+          <i data-icon="crosshair" data-size="13"></i>
+        </button>
+      </div>
+      <div id="canvasArea">
+        <div id="page">
+          <div class="page-border-frame" id="pageBorderFrame"></div>
+          <div class="guide-line guide-x" id="guideCenterX" style="left: 397px;"></div>
+          <div class="guide-line guide-y" id="guideCenterY" style="top: 561.5px;"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="studentDashboardBar">
+  <span class="student-shortcut">Student: <span class="dashboard-name" id="dashboardStudentName">—</span></span>
+  <span>•</span><span id="dashboardCourseName">—</span>
+  <div class="dashboard-actions"><button class="btn btn-secondary" id="quickStartBtn" style="font-size:10px;padding:4px 8px">Quick Start</button><button class="btn btn-secondary" id="semesterPrepBtn" style="font-size:10px;padding:4px 8px">Semester prep</button></div>
+</div>
+
+<div id="studentQuickStart" role="dialog" aria-modal="true" aria-labelledby="qsTitle">
+  <div class="qs-card">
+    <div class="qs-head"><div><div class="qs-title" id="qsTitle">Add student profile</div><div class="qs-sub">Save student details for quick switching later.</div></div><button class="btn btn-secondary btn-icon" id="qsClose" type="button" aria-label="Close"><i data-icon="x" data-size="16"></i></button></div>
+    <div class="qs-body">
+      <div class="qs-grid">
+        <div>
+          <div class="qs-section">
+            <h4>1 · What are you making?</h4>
+            <div class="qs-type-grid" id="qsTypeGrid">
+              <button class="qs-type active" data-type="lab"><strong>Lab File</strong><small>Cover + index</small></button>
+              <button class="qs-type" data-type="assignment"><strong>Assignment</strong><small>Simple academic cover</small></button>
+              <button class="qs-type" data-type="practical"><strong>Practical File</strong><small>Lab-style record</small></button>
+              <button class="qs-type" data-type="project"><strong>Project Report</strong><small>Project-ready layout</small></button>
+              <button class="qs-type" data-type="seminar"><strong>Seminar</strong><small>Presentation/report cover</small></button>
+              <button class="qs-type" data-type="record"><strong>Record File</strong><small>Record-style pages</small></button>
+            </div>
+          </div>
+          <div class="qs-section" style="margin-top:12px">
+            <h4>2 · Course</h4>
+            <div class="qs-row">
+              <div class="qs-field"><label for="qsUniversity">University</label><select id="qsUniversity" class="select-box"></select></div>
+              <div class="qs-field"><label for="qsSemester">Semester</label><select id="qsSemester" class="select-box"><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option><option>5th</option><option selected>6th</option><option>7th</option><option>8th</option></select></div>
+            </div>
+            <div class="qs-field" style="margin-top:9px"><label for="qsSubject">Subject</label><select id="qsSubject" class="select-box"></select></div>
+            <div class="qs-row" style="margin-top:9px"><div class="qs-field"><label for="qsProfessor">Faculty / Professor</label><input id="qsProfessor" class="input-box" placeholder="Dr. / Prof. ..."></div><div class="qs-field"><label for="qsTaskTitle">Assignment / Lab title</label><input id="qsTaskTitle" class="input-box" placeholder="e.g. Lab File, Assignment 3"></div></div>
+          </div>
+          <div class="qs-section" style="margin-top:12px">
+            <h4>3 · Paste instructions (optional)</h4>
+            <textarea id="qsInstructionBox" aria-label="Assignment instructions (optional)" class="textarea-box" placeholder="Paste your assignment instructions, WhatsApp message, PDF text, or lab list here. Coverdraft will detect subject, faculty, assignment number and experiments."></textarea>
+            <div id="qsParsePreview" class="parse-preview"></div>
+            <button class="btn btn-secondary" id="qsParseBtn" style="margin-top:8px">Extract details</button>
+          </div>
+        </div>
+        <div>
+          <div class="qs-section">
+            <h4>4 · My student profile</h4>
+            <div class="qs-row"><div class="qs-field"><label for="qsName">Name</label><input id="qsName" class="input-box"></div><div class="qs-field"><label for="qsRoll">Roll No.</label><input id="qsRoll" class="input-box"></div></div>
+            <div class="qs-row" style="margin-top:9px"><div class="qs-field"><label for="qsReg">Registration No.</label><input id="qsReg" class="input-box"></div><div class="qs-field"><label for="qsSection">Section</label><input id="qsSection" class="input-box"></div></div>
+            <div class="qs-row" style="margin-top:9px"><div class="qs-field"><label for="qsBranch">Branch</label><input id="qsBranch" class="input-box"></div><div class="qs-field"><label for="qsSession">Session</label><input id="qsSession" class="input-box"></div></div>
+          </div>
+          <div id="studentProfilesQuickSlot">          <div class="panel-section profile-manager" id="studentProfilesSection">
+            <div class="section-heading"><span>Student profiles</span><span class="profile-count" id="profileCount">0 saved</span></div>
+            <div class="control-group">
+              <label class="control-label" for="profileSelect">Use a saved profile</label>
+              <select class="select-box" id="profileSelect"><option value="">No saved profiles yet</option></select>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="profileNameInput">Profile name</label>
+              <input class="input-box" id="profileNameInput" maxlength="60" placeholder="e.g. Sherlock · B.Tech CSE">
+            </div>
+            <div class="profile-action-row">
+              <button class="btn btn-secondary" id="saveProfileAsBtn" type="button">Save new</button>
+              <button class="btn btn-cyan" id="applyStudentProfileBtn" type="button" disabled>Apply profile</button>
+            </div>
+            <div class="profile-action-row">
+              <button class="btn btn-secondary" id="updateStudentProfileBtn" type="button" disabled>Update selected</button>
+              <button class="btn btn-secondary" id="deleteStudentProfileBtn" type="button" disabled>Delete</button>
+            </div>
+            <div class="profile-help">Profiles are stored only in this browser. They contain student fields, not course details.</div>
+          </div></div>
+          <div class="qs-section" style="margin-top:12px">
+            <h4>Recent work</h4>
+            <div id="qsRecent" class="qs-recent"></div>
+          </div>
+        </div>
+      </div>
+      <div class="qs-actions"><button class="btn btn-cyan" id="qsProfileOnly">Save profile</button><div class="right"><button class="btn btn-secondary" id="qsSemesterPrep">Prepare semester</button><button class="btn btn-cyan" id="qsCreate">Create assignment<i data-icon="chevron-right" data-size="14"></i></button></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="semesterPrepModal">
+  <div class="modal-card" style="width:min(680px,94vw)">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h3 style="font-size:15px">Prepare my semester</h3><button class="btn btn-secondary btn-icon" id="closeSemesterPrep" type="button" aria-label="Close"><i data-icon="x" data-size="16"></i></button></div>
+    <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:12px">Select the subjects you need. Coverdraft will create reusable subject records and keep faculty/index data separate for each one.</p>
+    <div class="semester-grid" id="semesterSubjectGrid"></div>
+    <div style="margin-top:14px;display:flex;justify-content:flex-end;gap:8px"><button class="btn btn-secondary" id="semesterSelectAll">Select all</button><button class="btn btn-cyan" id="semesterPrepare">Save semester setup</button></div>
+  </div>
+</div>
+<div id="printMount"></div>
+<div class="mini-toolbar" id="miniToolbar" role="toolbar" aria-label="Text formatting">
+  <select id="tbFontSelect" title="Typeface" aria-label="Typeface">
+    <option value="'Times New Roman', Times, serif">Times</option>
+    <option value="'EB Garamond', Georgia, serif">Garamond</option>
+    <option value="'Libre Baskerville', serif">Baskerville</option>
+    <option value="'Inter', sans-serif">Inter</option>
+    <option value="'JetBrains Mono', monospace">Mono</option>
+  </select>
+  <div class="tb-group">
+    <button id="tbSizeDown" title="Smaller text" aria-label="Smaller text"><i data-icon="minus" data-size="14"></i></button>
+    <span class="size-stepper-label" id="tbSizeLabel">16px</span>
+    <button id="tbSizeUp" title="Larger text" aria-label="Larger text"><i data-icon="plus" data-size="14"></i></button>
+  </div>
+  <div class="tb-group">
+    <button id="tbBoldBtn" title="Bold (Ctrl+B)" aria-label="Bold"><i data-icon="bold" data-size="15"></i></button>
+    <button id="tbItalicBtn" title="Italic (Ctrl+I)" aria-label="Italic"><i data-icon="italic" data-size="15"></i></button>
+    <button id="tbUnderlineBtn" title="Underline (Ctrl+U)" aria-label="Underline"><i data-icon="underline" data-size="15"></i></button>
+  </div>
+  <div class="tb-group">
+    <button id="tbAlignLeft" data-align="left" title="Align left" aria-label="Align left"><i data-icon="align-left" data-size="15"></i></button>
+    <button id="tbAlignCenter" data-align="center" title="Align center" aria-label="Align center"><i data-icon="align-center" data-size="15"></i></button>
+    <button id="tbAlignRight" data-align="right" title="Align right" aria-label="Align right"><i data-icon="align-right" data-size="15"></i></button>
+  </div>
+  <div class="color-picker-wrap" title="Text colour">
+    <div class="color-picker-swatch" id="tbColorSwatch" style="background:#111111;"></div>
+    <input type="color" id="tbColorPicker" value="#111111" aria-label="Text colour">
+  </div>
+  <div class="tb-spacing-group" title="Line spacing">
+    <button type="button" id="tbSpacingToggle" aria-haspopup="true" aria-expanded="false" aria-label="Line spacing"><i data-icon="arrow-up-down" data-size="15"></i></button>
+    <div class="tb-popover" id="tbSpacingPop" hidden>
+      <input type="range" id="tbSpacingSlider" min="1" max="2.5" step="0.05" value="1.35" aria-label="Line spacing">
+      <span class="size-stepper-label" id="tbSpacingVal">1.35</span>
+    </div>
+  </div>
+  <span class="tb-sep"></span>
+  <button id="tbDuplicate" title="Duplicate (Ctrl+D)" aria-label="Duplicate"><i data-icon="copy" data-size="15"></i></button>
+  <button id="tbDelete" title="Delete" aria-label="Delete" class="tb-danger"><i data-icon="trash-2" data-size="15"></i></button>
+</div>
+<div class="modal-overlay" id="mergerModal">
+  <div class="modal-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+      <h3 style="font-size:15px; font-weight:700;">Attach your assignment</h3>
+      <button class="btn btn-secondary btn-icon" id="closeMergerModal" type="button" aria-label="Close"><i data-icon="x" data-size="16"></i></button>
+    </div>
+    <p style="font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
+      Upload your assignment PDF. Your pages come first, then your assignment, in one file to submit.
+    </p>
+    <label class="merge-option" for="mergeIncludeIndex"><input type="checkbox" id="mergeIncludeIndex"><span>Also add the Index page after the cover</span></label>
+    <div class="pdf-preview-selection merge-pages" id="mergePagesSection" aria-labelledby="mergePagesTitle">
+      <div class="pdf-preview-selection-heading"><h4 id="mergePagesTitle">Pages before your assignment</h4><span id="mergePagesCount" aria-live="polite"></span></div>
+      <div class="page-checks" id="mergePageRows" role="group" aria-label="Pages before your assignment. Drag or use the arrow buttons to reorder."></div>
+    </div>
+    
+    <label class="drop-box" id="pdfDropZone">
+      <input type="file" id="assignmentPdfInput" accept="application/pdf">
+      <div id="pdfUploadNotice">
+        <i data-icon="upload" data-size="26" class="drop-icon"></i>
+        <div style="font-size:12.5px; font-weight:600;">Upload Assignment PDF</div>
+        <div style="font-size:10.5px; color:var(--text-dim); margin-top:2px;">Processed 100% locally in your browser</div>
+      </div>
+    </label>
+
+    <div id="attachedPdfMeta" style="margin-top:12px; display:none; background:var(--bg-surface-2); padding:9px; border-radius:6px; font-size:11.5px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span id="attachedPdfName" style="font-weight:600;overflow-wrap:anywhere"></span><button class="btn btn-secondary" id="clearAttachedPdfBtn" type="button" style="font-size:10.5px;padding:5px 8px">Remove PDF</button></div>
+      <div id="attachedPdfStatus" style="color:var(--accent-terminal-green); margin-top:5px;">Ready for front-page injection.</div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; justify-content:flex-end; gap:8px;">
+      <button class="btn btn-secondary" id="cancelMergerBtn">Cancel</button>
+      <button class="btn btn-cyan" id="confirmMergeDownloadBtn">
+        Merge and download
+      </button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="batchModal">
+  <div class="modal-card" style="width: 580px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <h3 style="font-size:15px; font-weight:700;">Subject library</h3>
+      <button class="btn btn-secondary btn-icon" id="closeBatchModal" type="button" aria-label="Close"><i data-icon="x" data-size="16"></i></button>
+    </div>
+    <div class="grid-2" style="margin-bottom:14px;">
+      <div class="control-group" style="margin-bottom:0;">
+        <label class="control-label" for="batchUniSelect">University</label>
+        <select class="select-box" id="batchUniSelect">
+        </select>
+      </div>
+      <div class="control-group" style="margin-bottom:0;">
+        <label class="control-label" for="batchSemSelect">Semester</label>
+        <select class="select-box" id="batchSemSelect">
+          <option value="1st">1st Semester</option>
+          <option value="2nd">2nd Semester</option>
+          <option value="3rd">3rd Semester</option>
+          <option value="4th">4th Semester</option>
+          <option value="5th">5th Semester</option>
+          <option value="6th" selected>6th Semester</option>
+          <option value="7th">7th Semester</option>
+          <option value="8th">8th Semester</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="batch-search-wrap">
+      <i data-icon="search" data-size="16"></i>
+      <input type="search" id="batchSubjectSearch" class="input-box" placeholder="Search subjects or codes…" autocomplete="off" aria-label="Search subjects and course codes">
+      <kbd> / </kbd>
+    </div>
+    <div id="batchSubjectResultCount" class="batch-search-count" aria-live="polite"></div>
+    <div class="batch-subjects-list" id="batchSubjectsList"></div>
+    <form class="batch-custom-subject-form" id="batchCustomSubjectForm" hidden>
+      <div class="batch-custom-title">Add a subject to this semester</div>
+      <div class="grid-2">
+        <div class="control-group"><label class="control-label" for="batchCustomCode">Subject code</label><input class="input-box" id="batchCustomCode" maxlength="40" placeholder="e.g. BTCS 619-18" required></div>
+        <div class="control-group"><label class="control-label" for="batchCustomTitle">Subject name</label><input class="input-box" id="batchCustomTitle" maxlength="100" placeholder="e.g. Machine Learning Lab" required></div>
+      </div>
+      <div class="control-group"><label class="control-label" for="batchCustomDepartment">Department line</label><input class="input-box" id="batchCustomDepartment" maxlength="120" value="Department of Computer Science Engineering" required></div>
+      <div class="batch-custom-actions"><button class="btn btn-secondary" id="cancelBatchCustomSubject" type="button">Cancel</button><button class="btn btn-cyan" type="submit">Save subject</button></div>
+    </form>
+    <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+      <button class="btn btn-cyan" id="addNewBatchSubjectBtn" type="button">+ Add subject</button>
+      <button class="btn btn-secondary" id="closeBatchModalDone">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mySubjectModal">
+  <form class="modal-card" id="mySubjectForm" style="width:440px" role="dialog" aria-modal="true" aria-labelledby="mySubjectTitle" autocomplete="off">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><h3 id="mySubjectTitle" style="font-size:16px;font-weight:700">Add your subject</h3><button class="btn btn-secondary btn-icon" id="mySubjectClose" type="button" aria-label="Close"><i data-icon="x" data-size="16"></i></button></div>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:12px">Type it once. It is saved on this device and appears in your subject bar for <strong id="mySubjectScope"></strong>.</p>
+    <div class="control-group"><label class="control-label" for="mySubjectName">Subject name</label><input class="input-box" id="mySubjectName" maxlength="100" placeholder="e.g. Machine Learning Lab" required></div>
+    <div class="control-group"><label class="control-label" for="mySubjectCode">Subject code <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label><input class="input-box" id="mySubjectCode" maxlength="40" placeholder="e.g. BTCS 619-18"></div>
+    <div class="control-group"><label class="control-label" for="mySubjectDept">Department line</label><input class="input-box" id="mySubjectDept" maxlength="120" placeholder="e.g. Department of Computer Science & Engineering"></div>
+    <div class="batch-custom-actions" style="margin-top:14px"><button class="btn btn-secondary" id="mySubjectCancel" type="button">Cancel</button><button class="btn btn-cyan" type="submit">Save and use</button></div>
+  </form>
+</div>
+
+<div class="modal-overlay" id="pdfPreviewModal" role="dialog" aria-modal="true" aria-labelledby="pdfPreviewTitle">
+  <div class="modal-card pdf-preview-card">
+    <div class="pdf-preview-header">
+      <div><h3 id="pdfPreviewTitle">Preview PDF</h3><p id="pdfPreviewMeta">Review the pages selected for export.</p></div>
+      <button class="btn btn-secondary btn-icon" id="closePdfPreviewBtn" aria-label="Close PDF preview"><i data-icon="x" data-size="16"></i></button>
+    </div>
+    <div class="pdf-preview-body">
+      <div class="pdf-preview-side">
+        <section class="pdf-preview-selection" id="pageSelectionSection" aria-labelledby="pdfPageSelectionTitle">
+          <div class="pdf-preview-selection-heading"><h4 id="pdfPageSelectionTitle">Pages</h4><span id="pagesIncludedCount" aria-live="polite">2 pages included</span></div>
+          <p class="pdf-side-hint" id="pdfPageSelectionHint" hidden></p>
+      <div class="page-checks" id="pageRows">
+        <div class="page-row" data-pg="cover"><label><input type="checkbox" checked> Cover</label><span><button class="mv" type="button" data-d="-1" aria-label="Move Cover up"><i data-icon="chevron-up" data-size="14"></i></button><button class="mv" type="button" data-d="1" aria-label="Move Cover down"><i data-icon="chevron-down" data-size="14"></i></button></span></div>
+        <div class="page-row" data-pg="index"><label><input type="checkbox" checked> Index</label><span><button class="mv" type="button" data-d="-1" aria-label="Move Index up"><i data-icon="chevron-up" data-size="14"></i></button><button class="mv" type="button" data-d="1" aria-label="Move Index down"><i data-icon="chevron-down" data-size="14"></i></button></span></div>
+      </div>
+          <div class="pdf-preview-selection-actions"><button class="btn btn-secondary" id="selectAllPagesBtn" type="button">Select all</button><button class="btn btn-secondary" id="resetPageOrderBtn" type="button">Default order</button></div>
+        </section>
+        <section class="pdf-preview-selection pdf-subject-selection" id="subjectSelectionSection" aria-labelledby="subjectSelectionTitle">
+          <div class="pdf-preview-selection-heading"><h4 id="subjectSelectionTitle">Subjects</h4><span id="subjectsIncludedCount" aria-live="polite">Current subject</span></div>
+          <label class="subject-export-toggle" for="multiSubjectExportCheck"><input id="multiSubjectExportCheck" type="checkbox"> Combine several subjects in one PDF</label>
+          <p class="pdf-side-hint" id="subjectSelectionDescription">Only the current subject is exported.</p>
+          <div id="subjectSelectionControls" hidden>
+            <div class="subject-selection-actions"><button class="btn btn-secondary" id="selectAllSubjectsBtn" type="button">Select all</button><button class="btn btn-secondary" id="clearAllSubjectsBtn" type="button">Clear</button></div>
+            <div class="subject-checks" id="subjectRows" aria-label="Subjects to include in the combined PDF"></div>
+          </div>
+        </section>
+      </div>
+      <div class="pdf-preview-viewer">
+        <div class="pdf-preview-toolbar"><button class="btn btn-secondary" id="previewPrevBtn" type="button"><i data-icon="chevron-left" data-size="14"></i>Previous</button><span id="pdfPreviewPageLabel">Preparing preview…</span><button class="btn btn-secondary" id="previewNextBtn" type="button">Next<i data-icon="chevron-right" data-size="14"></i></button></div>
+        <div class="pdf-preview-page-wrap"><img id="pdfPreviewImage" alt="Preview of PDF page" hidden><div id="pdfPreviewLoading" class="pdf-preview-loading">Preparing your pages…</div></div>
+        <aside class="pdf-preview-thumbs" id="pdfPreviewThumbs" aria-label="Preview pages"></aside>
+      </div>
+    </div>
+    <div class="pdf-preview-footer"><span id="pdfPreviewHint"></span><div><button class="btn btn-secondary" id="printVectorBtn" type="button" title="Open your browser's print dialog (sharp, vector text). Choose Save as PDF there.">Print</button><button class="btn btn-secondary" id="downloadIndividualPdfBtn" type="button" hidden>Download individually</button><button class="btn btn-cyan" id="downloadPreviewPdfBtn">Download PDF</button></div></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="checkModal"><div class="modal-card" style="width:440px">
+  <h3 style="font-size:15px;font-weight:700;margin-bottom:6px">Check before you download</h3>
+  <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:10px">These look unfinished:</p>
+  <ul id="checkList" style="padding-left:18px;font-size:13px;line-height:1.7"></ul>
+  <div style="margin-top:18px;display:flex;justify-content:flex-end;gap:8px">
+    <button class="btn btn-secondary" id="checkAnyway">Download anyway</button>
+    <button class="btn btn-cyan" id="checkFix">Go back and fix</button></div></div></div>
+<div class="modal-overlay" id="welcomeModal"><div class="modal-card" style="width:420px">
+  <h3 style="font-size:16px;font-weight:700;margin-bottom:6px">Set up once</h3>
+  <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:14px">Choose your university and semester. Then fill in your details once; they're saved on this device for every subject.</p>
+  <div class="control-group"><label class="control-label" for="wUni">University</label><select class="select-box" id="wUni"></select></div>
+  <div class="control-group"><label class="control-label" for="wSem">Semester</label><select class="select-box" id="wSem"></select></div>
+  <div style="margin-top:16px;display:flex;justify-content:flex-end"><button class="btn btn-cyan" id="wGo">Continue</button></div></div></div>
+<div class="modal-overlay" id="confirmModal"><div class="modal-card confirm-card" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage">
+  <h3 id="confirmTitle">Are you sure?</h3>
+  <p class="confirm-message" id="confirmMessage"></p>
+  <label class="confirm-skip" id="confirmSkipRow" hidden><input type="checkbox" id="confirmSkip"><span>Don’t show this again</span></label>
+  <div class="confirm-actions"><button class="btn btn-secondary" id="confirmCancel" type="button">Cancel</button><button class="btn btn-cyan" id="confirmOk" type="button" data-dialog-initial-focus>Confirm</button></div>
+</div></div>
+<div class="modal-overlay" id="uniEditModal"><div class="modal-card uni-edit-card" role="dialog" aria-modal="true" aria-labelledby="uniEditTitle">
+  <div class="uni-edit-head"><h3 id="uniEditTitle">Edit university</h3><button class="btn btn-secondary btn-icon" id="uniEditClose" type="button" aria-label="Close"><i data-icon="x" data-size="16"></i></button></div>
+  <div class="control-group"><label class="control-label" for="uniEditLabel" id="uniEditLabelText">Menu name</label><input class="input-box" id="uniEditLabel" data-dialog-initial-focus type="text" maxlength="80" autocomplete="off"></div>
+  <div class="control-group" id="uniEditShortGroup"><label class="control-label" for="uniEditShortName">Short name <span class="uni-edit-note">(shown in the compact picker)</span></label><input class="input-box" id="uniEditShortName" type="text" maxlength="24" autocomplete="off"></div>
+  <div class="control-group" id="uniEditNameGroup"><label class="control-label" for="uniEditName">Name printed on the cover page</label><input class="input-box" id="uniEditName" type="text" maxlength="120" autocomplete="off"></div>
+  <div class="uni-edit-layout">
+    <div class="section-heading"><span>Default layout</span></div>
+    <p class="uni-edit-help" id="uniEditLayoutHelp"></p>
+    <label class="uni-edit-check"><input type="checkbox" id="uniEditUseCurrent"><span id="uniEditUseCurrentText">Use the current cover layout as this university’s default</span></label>
+    <label class="uni-edit-check" id="uniEditResetRow"><input type="checkbox" id="uniEditResetLayout"><span>Go back to the built-in layout</span></label>
+    <p class="uni-edit-help" id="uniEditPaperHint" hidden>Set the paper size to A4 to use the page as a default layout.</p>
+  </div>
+  <p class="uni-edit-error" id="uniEditError" role="alert" hidden></p>
+  <div class="uni-edit-actions"><button class="btn btn-secondary" id="uniEditResetAll" type="button">Restore built-in</button><span class="uni-edit-spacer"></span><button class="btn btn-secondary" id="uniEditCancel" type="button">Cancel</button><button class="btn btn-cyan" id="uniEditSave" type="button">Save</button></div>
+</div></div>
+<div id="dropHint" class="drop-hint">Drop a PDF to attach it</div>
+<div class="shortcut-overlay" id="shortcutHelp" hidden>
+  <div class="shortcut-card shortcut-help-card" role="dialog" aria-modal="true" aria-labelledby="shortcutHelpTitle">
+    <div class="shortcut-head"><div><div class="shortcut-kicker">KEYBOARD SHORTCUTS</div><h2 id="shortcutHelpTitle">Work faster</h2></div><button class="btn btn-secondary btn-icon" id="shortcutHelpClose" type="button" aria-label="Close keyboard shortcuts"><i data-icon="x" data-size="16"></i></button></div>
+    <div class="shortcut-help-list">
+      <div><span>Undo</span><kbd>Ctrl Z</kbd></div><div><span>Redo</span><kbd>Ctrl Y</kbd></div><div><span>Save draft</span><kbd>Ctrl S</kbd></div><div><span>Duplicate selected element</span><kbd>Ctrl D</kbd></div><div><span>Edit highlighted university or layout (university menu)</span><kbd>F2</kbd></div><div><span>Close dialog or menu</span><kbd>Esc</kbd></div><div><span>Show this help</span><kbd>?</kbd></div><div><span>Fit page in preview</span><kbd>Ctrl 0</kbd></div><div><span>Zoom in / out</span><kbd>Ctrl + / −</kbd></div><div><span>Edit Index preview text or cells</span><kbd>Double-click / double-tap</kbd></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-box" id="appToast">
+  <div class="toast-dot" id="toastDot"></div>
+  <span id="toastMsg">Action completed</span>
+</div>
+<input type="file" id="documentImportInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden aria-label="Choose a DOCX file to import">
+
+<script defer src="./assets/js/core/icons.js"></script>
+<script defer src="./assets/js/data/cdn-libraries.js"></script>
+<script defer src="./assets/js/core/storage.js"></script>
+<script defer src="./assets/js/core/lib-loader.js"></script>
+<script defer src="./assets/js/config.js"></script>
+<script defer src="./assets/js/data/templates.generated.js"></script>
+<script defer src="./assets/js/core/template-registry.js"></script>
+<script defer src="./assets/js/core/university-overrides.js"></script>
+<script defer src="./assets/js/core/app-state.js"></script>
+<script defer src="./assets/js/core/confirm-dialog.js"></script>
+<script defer src="./assets/js/core/editor-core.js"></script>
+<script defer src="./assets/js/core/canvas-editor.js"></script>
+<script defer src="./assets/js/core/document-export.js"></script>
+<script defer src="./assets/js/core/docx-export.js"></script>
+<script defer src="./assets/js/core/app.js"></script>
+<script defer src="./assets/js/features/menu.js"></script>
+<script defer src="./assets/js/features/workspace/page-capture.js"></script>
+<script defer src="./assets/js/features/subjects/subject-state.js"></script>
+<script defer src="./assets/js/features/subjects/subject-shortcuts.js"></script>
+<script defer src="./assets/js/features/export/export-flow.js"></script>
+<script defer src="./assets/js/features/export/class-sharing.js"></script>
+<script defer src="./assets/js/features/app-shell.js"></script>
+<script defer src="./assets/js/features/format-library.js"></script>
+<script defer src="./assets/js/features/university-editor.js"></script>
+<script defer src="./assets/js/features/document-import.js"></script>
+<script defer src="./assets/js/features/student-workflow.js"></script>
+<script defer src="./assets/js/features/workspace/autosave.js"></script>
+<script defer src="./assets/js/features/workspace/student-profiles.js"></script>
+<script defer src="./assets/js/features/workspace/attachment-storage.js"></script>
+<script defer src="./assets/js/features/workspace/pdf-preview.js"></script>
+<script defer src="./assets/js/features/workspace/design-controls.js"></script>
+<script defer src="./assets/js/features/workspace/mobile-mode-toggle.js"></script>
+<script defer src="./assets/js/features/history-and-attachments.js"></script>
+<script defer src="./assets/js/features/shortcuts-and-status.js"></script>
+<script defer src="./assets/js/features/short-selects.js"></script>
+<script defer src="./assets/js/features/preset-menu.js"></script>
+<script defer src="./assets/js/features/accessibility.js"></script>
+</body>
+</html>

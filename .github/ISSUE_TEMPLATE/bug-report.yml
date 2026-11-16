@@ -1,0 +1,37 @@
+name: Bug report
+description: Something in the app does not work as expected
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: e.g. Chrome 130 on Windows 11, or Safari on iPhone 15
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does it happen?
+      options:
+        - Editing the page
+        - PDF export or preview
+        - Word (.docx) export or import
+        - University picker or saved layouts
+        - Install or offline use
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots help, but please hide personal details first.

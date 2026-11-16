@@ -1,0 +1,553 @@
+{
+  "1st": [
+    {
+      "code": "BTPH101-23",
+      "title": "Engineering Physics",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTPH102-23",
+      "title": "Engineering Physics Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTAM101-23",
+      "title": "Engineering Mathematics-I",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTEE101-18",
+      "title": "Basic Electrical Engineering",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTEE102-18",
+      "title": "Basic Electrical Engineering Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTME101-21",
+      "title": "Engineering Graphics & Design",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCH101-23",
+      "title": "Chemistry-I",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCH102-18",
+      "title": "Chemistry-I Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTPS101-18",
+      "title": "Programming for Problem Solving",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTPS102-18",
+      "title": "Programming for Problem Solving Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTMP101-18",
+      "title": "Workshop / Manufacturing Practices",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTHU101-18",
+      "title": "English",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTHU102-18",
+      "title": "English Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BMPD101-18",
+      "title": "Mentoring and Professional Development",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "2nd": [
+    {
+      "code": "BTPH101-23",
+      "title": "Engineering Physics",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTPH102-23",
+      "title": "Engineering Physics Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTAM201-23",
+      "title": "Engineering Mathematics-II",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTEE101-18",
+      "title": "Basic Electrical Engineering",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTEE102-18",
+      "title": "Basic Electrical Engineering Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTME101-21",
+      "title": "Engineering Graphics & Design",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCH101-23",
+      "title": "Chemistry-I",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCH102-18",
+      "title": "Chemistry-I Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTPS101-18",
+      "title": "Programming for Problem Solving",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTPS102-18",
+      "title": "Programming for Problem Solving Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTMP101-18",
+      "title": "Workshop / Manufacturing Practices",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTHU101-18",
+      "title": "English",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTHU102-18",
+      "title": "English Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BMPD201-18",
+      "title": "Mentoring and Professional Development",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "3rd": [
+    {
+      "code": "BTES301-18",
+      "title": "Digital Electronics",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS301-18",
+      "title": "Data Structure & Algorithms",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS302-18",
+      "title": "Object Oriented Programming",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTAM302-23",
+      "title": "Mathematics-III (Probability and Statistics)",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "HSMC101/102-18",
+      "title": "Foundation Course in Humanities (Development of Societies/Philosophy)",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTES302-18",
+      "title": "Digital Electronics Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS303-18",
+      "title": "Data Structure & Algorithms Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS304-18",
+      "title": "Object Oriented Programming Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS305-18",
+      "title": "IT Workshop",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "4th": [
+    {
+      "code": "BTCS401-18",
+      "title": "Discrete Mathematics",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTES401-18",
+      "title": "Computer Organization & Architecture",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS402-18",
+      "title": "Operating Systems",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS403-18",
+      "title": "Design & Analysis of Algorithms",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "HSMC122-18",
+      "title": "Universal Human Values 2",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "EVS101-18",
+      "title": "Environmental Sciences",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTES402-18",
+      "title": "Computer Organization & Architecture Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS404-18",
+      "title": "Operating Systems Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS405-18",
+      "title": "Design & Analysis of Algorithms Lab",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "5th": [
+    {
+      "code": "BTES501-18",
+      "title": "Enterprise Resource Planning",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS501-18",
+      "title": "Database Management Systems",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS502-18",
+      "title": "Formal Language & Automata Theory",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS503-18",
+      "title": "Software Engineering",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS504-18",
+      "title": "Computer Networks",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "MC",
+      "title": "Constitution of India / Essence of Indian Traditional Knowledge",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS505-18",
+      "title": "Database Management Systems Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS506-18",
+      "title": "Software Engineering Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS507-18",
+      "title": "Computer Networks Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS XXX-18",
+      "title": "Elective-I (choose one)",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS510-18",
+      "title": "Programming in Python",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS513-18",
+      "title": "Programming in Python Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS515-18",
+      "title": "Computer Graphics",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS518-18",
+      "title": "Computer Graphics Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS520-18",
+      "title": "Web Technologies",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS522-18",
+      "title": "Web Technologies Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS521-18",
+      "title": "Computational Biology",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS523-18",
+      "title": "Computational Biology Lab",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "6th": [
+    {
+      "code": "BTCS601-18",
+      "title": "Compiler Design",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS602-18",
+      "title": "Artificial Intelligence",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTOE-***",
+      "title": "Open Elective-I",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS603-18",
+      "title": "Project-I",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS604-18",
+      "title": "Compiler Design Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS605-18",
+      "title": "Artificial Intelligence Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS606-18",
+      "title": "Simulation and Modelling",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS607-18",
+      "title": "Simulation and Modelling Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS608-18",
+      "title": "Internet of Things",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS609-18",
+      "title": "Internet of Things Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS610-18",
+      "title": "Digital Image Processing",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS611-18",
+      "title": "Digital Image Processing Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS612-18",
+      "title": "Cloud Computing",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS613-18",
+      "title": "Cloud Computing Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS614-18",
+      "title": "Software Project Management",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS615-18",
+      "title": "Software Project Management Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS616-18",
+      "title": "Data Science",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS617-18",
+      "title": "Data Science Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS618-18",
+      "title": "Machine Learning",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS619-18",
+      "title": "Machine Learning Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS620-18",
+      "title": "Mobile Application Development",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS621-18",
+      "title": "Mobile Application Development Lab",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "7th": [
+    {
+      "code": "BTCS701-18",
+      "title": "Network Security and Cryptography",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS702-18",
+      "title": "Data Mining and Data Warehousing",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTOE-***",
+      "title": "Open Elective-II",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS703-18",
+      "title": "Project-II",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS704-18",
+      "title": "Deep Learning",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS705-18",
+      "title": "Deep Learning Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS706-18",
+      "title": "Distributed Databases",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS707-18",
+      "title": "Distributed Databases Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS708-18",
+      "title": "Computer Vision",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS709-18",
+      "title": "Computer Vision Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS710-18",
+      "title": "Agile Software Development",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS711-18",
+      "title": "Agile Software Development Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS712-18",
+      "title": "Blockchain Technologies",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS713-18",
+      "title": "Blockchain Technologies Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS714-18",
+      "title": "Parallel Computing",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS715-18",
+      "title": "Parallel Computing Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS716-18",
+      "title": "Adhoc and Wireless Sensor Networks",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS717-18",
+      "title": "Adhoc and Wireless Sensor Networks Lab",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS718-18",
+      "title": "Quantum Computing",
+      "department": "Department of Computer Science Engineering"
+    },
+    {
+      "code": "BTCS719-18",
+      "title": "Quantum Computing Lab",
+      "department": "Department of Computer Science Engineering"
+    }
+  ],
+  "8th": [
+    {
+      "code": "BTCS801-18",
+      "title": "Semester Training",
+      "department": "Department of Computer Science Engineering"
+    }
+  ]
+}

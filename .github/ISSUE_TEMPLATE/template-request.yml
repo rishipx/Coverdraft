@@ -1,0 +1,40 @@
+name: Add or fix a university template
+description: Request a new university, or report a cover page or subject list that is wrong
+title: "[Template] "
+labels: ["template"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the templates accurate. Please do not upload files that contain personal details.
+  - type: input
+    id: university
+    attributes:
+      label: University or institution
+      placeholder: e.g. Example Technical University
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this about?
+      options:
+        - New university template
+        - Cover page layout is wrong
+        - Subject list is wrong or missing
+        - Name, short name or crest is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should it look like?
+      description: Describe the required cover page format, or list the correct subjects with their codes and semesters. A link to the official guideline helps.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Emblem
+      options:
+        - label: I am allowed to share any emblem or image I attach, or I am not attaching one.

@@ -1,0 +1,206 @@
+{
+  "id": "lpu",
+  "order": 20,
+  "name": "Lovely Professional University, Phagwara",
+  "label": "Lovely Professional University (LPU)",
+  "shortName": "LPU",
+  "detect": "lovely\\s+professional",
+  "defaults": {
+    "department": "MASTER OF SOCIAL WORK",
+    "title": "Waste and Society: A reflection of inequality, responsibility and change",
+    "code": "MSW517",
+    "taskNo": "Assignment- 01",
+    "prof": "Prof. James Moriarty",
+    "subject": "Sociology for Social Work"
+  },
+  "student": {
+    "name": "Sherlock Holmes",
+    "regNo": "12345678",
+    "roll": "123456",
+    "section": "U1234"
+  },
+  "fields": [
+    {
+      "id": "university",
+      "label": "University Name",
+      "group": "course"
+    },
+    {
+      "id": "department",
+      "label": "Programme / Degree",
+      "group": "course"
+    },
+    {
+      "id": "title",
+      "label": "Assignment Title",
+      "group": "course"
+    },
+    {
+      "id": "code",
+      "label": "Subject Code",
+      "group": "course",
+      "grid": 2
+    },
+    {
+      "id": "subject",
+      "label": "Subject Name",
+      "group": "course"
+    },
+    {
+      "id": "taskNo",
+      "label": "Assignment Number",
+      "group": "course",
+      "grid": 2
+    },
+    {
+      "id": "prof",
+      "label": "Submitted To",
+      "group": "course"
+    },
+    {
+      "id": "name",
+      "label": "Student Name",
+      "group": "student"
+    },
+    {
+      "id": "regNo",
+      "label": "Registration Number",
+      "group": "student",
+      "grid": 3
+    },
+    {
+      "id": "roll",
+      "label": "Roll Number",
+      "group": "student",
+      "grid": 3
+    },
+    {
+      "id": "section",
+      "label": "Section",
+      "group": "student",
+      "grid": 3
+    }
+  ],
+  "style": {
+    "id": "lpu_task",
+    "name": "LPU Formal Assignment",
+    "font": "'Times New Roman', Times, serif",
+    "border": {
+      "enabled": true,
+      "style": "solid",
+      "width": 2,
+      "color": "#111111",
+      "inset": 52
+    }
+  },
+  "cover": [
+    {
+      "id": "logo",
+      "x": 185,
+      "y": 105,
+      "w": 424,
+      "h": 205,
+      "type": "logo"
+    },
+    {
+      "id": "programme_title",
+      "x": 50,
+      "y": 337,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 22,
+      "text": "{department}",
+      "color": "#111111"
+    },
+    {
+      "id": "task_line",
+      "x": 50,
+      "y": 384,
+      "w": 694,
+      "align": "center",
+      "weight": "bold",
+      "size": 18,
+      "text": "{taskNo}",
+      "color": "#111111"
+    },
+    {
+      "id": "title",
+      "x": 132,
+      "y": 482,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "lineHeight": 1.2,
+      "text": "\\textbf{Title:} {title}",
+      "color": "#111111"
+    },
+    {
+      "id": "submitted_by",
+      "x": 132,
+      "y": 565,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "text": "\\textbf{Submitted by:} {name} ({regNo})",
+      "color": "#111111"
+    },
+    {
+      "id": "roll_line",
+      "x": 132,
+      "y": 615,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "text": "\\textbf{Roll no:} {roll}",
+      "color": "#111111"
+    },
+    {
+      "id": "code_line",
+      "x": 132,
+      "y": 665,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "text": "\\textbf{Subject Code:} {code}",
+      "color": "#111111"
+    },
+    {
+      "id": "subject_line",
+      "x": 132,
+      "y": 715,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "text": "\\textbf{Subject:} {subject}",
+      "color": "#111111"
+    },
+    {
+      "id": "section_line",
+      "x": 132,
+      "y": 765,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "text": "\\textbf{Section:} {section}",
+      "color": "#111111"
+    },
+    {
+      "id": "submitted_to",
+      "x": 132,
+      "y": 815,
+      "w": 585,
+      "align": "left",
+      "weight": "normal",
+      "size": 19,
+      "text": "\\textbf{Submitted to:} {prof}",
+      "color": "#111111"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Dependencies and tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs and local artefacts
+*.log
+coverage/
+dist/
+playwright-report/
+test-results/

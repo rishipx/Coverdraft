@@ -1,0 +1,338 @@
+{
+  "1st": [
+    {
+      "code": "25CSH-107",
+      "title": "Logical Thinking & Problem Solving",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25SMT-121",
+      "title": "Mathematics-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25PCH-110",
+      "title": "Communication Skills-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CST-110",
+      "title": "Academic and Career Pathway Planning",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25SPH-143",
+      "title": "Semiconductor Physics & Applications",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25UCT-103",
+      "title": "Universal Human Values, Ethics and Life Skills-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25ECP-103",
+      "title": "Emerging & Disruptive Technologies Workshop",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25SPH-141",
+      "title": "Engineering Physics",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "2nd": [
+    {
+      "code": "25CSH-103",
+      "title": "Basic Data Structures",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25SMT-125",
+      "title": "Mathematics-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25PCH-111",
+      "title": "Communications Skills-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25GPT-121",
+      "title": "General Proficiency-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-105",
+      "title": "Programming Practice",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25ECH-101",
+      "title": "Digital Electronics",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDT-152",
+      "title": "Aptitude-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-102",
+      "title": "Design Thinking & Innovation",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25ECP-102",
+      "title": "AI Applications Lab",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25MEP-102",
+      "title": "Computer Graphics Lab",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25SZT-148",
+      "title": "Biology for Engineers",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "3rd": [
+    {
+      "code": "25CST-201",
+      "title": "Computer Organization and Architecture",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-202",
+      "title": "Advanced Data Structures and Algorithms",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-203",
+      "title": "Python Programming",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-204",
+      "title": "Database Management System",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25SMT-241",
+      "title": "Probability and Statistics",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25UCT-296",
+      "title": "Universal Human Values, Ethics and Life Skills-2",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25UCI-203",
+      "title": "Social Internship",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDP-211",
+      "title": "Soft Skills-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "4th": [
+    {
+      "code": "25CST-206",
+      "title": "Software Engineering",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CST-205",
+      "title": "Operating System",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-207",
+      "title": "Object Oriented Programming using JAVA",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-208",
+      "title": "Design and Analysis of Algorithms",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSR-208",
+      "title": "Semester Mini Project",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDT-292",
+      "title": "TPP: Aptitude-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDP-291",
+      "title": "TPP: Soft Skills-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CST-254",
+      "title": "NTPP: Introduction to Soft Computing",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-256",
+      "title": "NTPP: Web Technologies",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-209",
+      "title": "Competitive Coding-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-210",
+      "title": "Full Stack Development-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "5th": [
+    {
+      "code": "25CST-302",
+      "title": "Numerical Methods",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-301",
+      "title": "Project Based Learning in Java",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CST-303",
+      "title": "Computer Networks",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSI-305",
+      "title": "Institute/Industrial Summer Training",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDP-311",
+      "title": "TPP: Soft Skills-III",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDT-312",
+      "title": "TPP: Aptitude-III",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-305",
+      "title": "NTPP: Fundamentals of Image Processing",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-304",
+      "title": "Full Stack Development-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-305",
+      "title": "Competitive Coding-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "6th": [
+    {
+      "code": "25CSH-306",
+      "title": "Statistical Methods for AI (using R/ Matlab/ Scilab)",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSH-307",
+      "title": "System Design",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CST-307",
+      "title": "Theory of Computation",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSR-308",
+      "title": "Capstone Project-I",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDP-361",
+      "title": "TPP: Soft Skills-IV",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25TDT-362",
+      "title": "TPP: Aptitude-IV",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CST-308",
+      "title": "NTPP: Software Project Management",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-309",
+      "title": "Competitive Coding-III",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-310",
+      "title": "Advanced Database Management System",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "7th": [
+    {
+      "code": "25CST-404",
+      "title": "Parallel and Distributed Computing",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSR-401",
+      "title": "Capstone Project-II",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25UCT-494",
+      "title": "Environmental Science, Waste and Disaster Management",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSI-402",
+      "title": "Institute/Industrial Summer Training",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25CSP-403",
+      "title": "Competitive Coding-IV",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25UCT-402",
+      "title": "Academic Writing Skills and IPR",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ],
+  "8th": [
+    {
+      "code": "25CSR-404",
+      "title": "Capstone Project-III",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    },
+    {
+      "code": "25UCT-412",
+      "title": "Professional Ethics",
+      "department": "UNIVERSITY INSTITUTE OF COMPUTING"
+    }
+  ]
+}
